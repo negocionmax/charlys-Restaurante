@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charly's | Rebel & Food</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Rock+Salt&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-red: #ff003c;
+            --dark-rock: #0a0a0a;
+            --metal-gray: #1a1a1a;
+            --white: #ffffff;
+            --text-gray: #b0b0b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-rock );
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            background-image: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('https://www.transparenttextures.com/patterns/dark-brick-wall.png' );
+        }
+
+        h1, h2, h3 {
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 3px;
+        }
+
+        .rebel-font {
+            font-family: 'Rock Salt', cursive;
+            color: var(--neon-red);
+            font-size: 1.2rem;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1514525253361-bee8718a340b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80' );
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            border-bottom: 4px solid var(--neon-red);
+            box-shadow: 0 0 20px var(--neon-red);
+        }
+
+        header h1 {
+            font-size: 7rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px var(--neon-red), 0 0 20px var(--neon-red);
+        }
+
+        .tagline {
+            font-size: 2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 5px;
+        }
+
+        nav {
+            background: rgba(0,0,0,0.95);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #333;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            padding: 0.5rem 1rem;
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 2px;
+        }
+
+        nav a:hover {
+            color: var(--neon-red);
+            text-shadow: 0 0 5px var(--neon-red);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+            font-size: 4rem;
+            color: var(--white);
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title span {
+            color: var(--neon-red);
+            text-shadow: 0 0 10px var(--neon-red);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .menu-category {
+            background: var(--metal-gray);
+            padding: 3rem 2rem;
+            border: 1px solid #333;
+            position: relative;
+            transition: 0.4s;
+        }
+
+        .menu-category:hover {
+            border-color: var(--neon-red);
+            box-shadow: 0 0 15px rgba(255, 0, 60, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .menu-category h3 {
+            color: var(--white);
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            text-align: left;
+            border-left: 5px solid var(--neon-red);
+            padding-left: 1rem;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #222;
+            padding-bottom: 0.5rem;
+        }
+
+        .item-info { flex: 1; }
+        .item-name { font-weight: 700; font-size: 1.1rem; text-transform: uppercase; }
+        .item-desc { font-size: 0.8rem; color: var(--text-gray); font-style: italic; display: block; margin-top: 3px; }
+        .price { font-weight: 700; color: var(--neon-red); margin-left: 1rem; font-size: 1.2rem; font-family: 'Bebas Neue', cursive; }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .info-card {
+            background: #000;
+            padding: 4rem 2rem;
+            text-align: center;
+            border: 1px solid #222;
+            transition: 0.3s;
+        }
+
+        .info-card:hover { border-color: var(--neon-red); }
+        .info-card i { font-size: 3.5rem; color: var(--neon-red); margin-bottom: 1.5rem; filter: drop-shadow(0 0 5px var(--neon-red)); }
+        .info-card h4 { margin-bottom: 1.5rem; font-size: 2rem; text-transform: uppercase; }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 1rem;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.2rem;
+        }
+
+        .btn-neon { background: var(--neon-red); color: var(--white); box-shadow: 0 0 10px var(--neon-red); }
+        .btn-neon:hover { background: var(--white); color: var(--neon-red); box-shadow: 0 0 20px var(--white); }
+        .btn-outline { border: 2px solid var(--white); color: var(--white); }
+        .btn-outline:hover { border-color: var(--neon-red); color: var(--neon-red); box-shadow: 0 0 10px var(--neon-red); }
+
+        footer {
+            background: #000;
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 1rem;
+            margin-top: 6rem;
+            border-top: 1px solid #333;
+        }
+
+        .social-links a { color: var(--white); font-size: 2rem; margin: 0 1.5rem; transition: 0.3s; }
+        .social-links a:hover { color: var(--neon-red); transform: rotate(15deg) scale(1.2); }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 4rem; }
+            .tagline { font-size: 1.2rem; }
+            .section-title { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="inicio">
+        <p class="rebel-font">No sigas las reglas...</p>
+        <h1>CHARLY'S</h1>
+        <p class="tagline">RESTAURANTE & ROCK</p>
+        <div style="margin-top: 3rem;">
+            <a href="#menu" class="btn btn-neon">Ver Menú</a>
+            <a href="https://www.didifood.com/es-MX/food/search?q=RESTAURANTE%20CHARLY%27S" target="_blank" class="btn btn-outline">
+                <i class="fas fa-motorcycle"></i> Pedir en DiDi Food
+            </a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#menu">Menú</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#horarios">Horarios</a>
+    </nav>
+
+    <div class="container">
+        <section id="menu">
+            <h2 class="section-title">Nuestra <span>Carta</span></h2>
+            <div class="menu-grid">
+                <!-- 1. TORTAS TRADICIONALES -->
+                <div class="menu-category">
+                    <h3>Tortas Tradicionales</h3>
+                    <div class="menu-item"><span>Torta Arrachera</span><span class="price">$70.00</span></div>
+                    <div class="menu-item"><span>Torta de Bistec de Res</span><span class="price">$60.00</span></div>
+                    <div class="menu-item"><span>Torta de Pechuga Asada</span><span class="price">$60.00</span></div>
+                    <div class="menu-item"><span>Torta de Milanesa de Res</span><span class="price">$60.00</span></div>
+                    <div class="menu-item"><span>Torta de Chorizo</span><span class="price">$60.00</span></div>
+                    <div class="menu-item"><span>Torta de Pierna Española</span><span class="price">$60.00</span></div>
+                    <div class="menu-item"><span>Torta de Jamón</span><span class="price">$55.00</span></div>
+                    <div class="menu-item"><span>Torta de Salchicha</span><span class="price">$50.00</span></div>
+                    <div class="menu-item"><span>Torta de Huevo</span><span class="price">$50.00</span></div>
+                    <div class="menu-item"><span>Torta de Huevo con Jamón/Chorizo/Salchicha</span><span class="price">$60.00</span></div>
+                </div>
+
+                <!-- 2. TORTAS COMBINADAS -->
+                <div class="menu-category">
+                    <h3>Tortas Combinadas</h3>
+                    <div class="menu-item"><div class="item-info"><span class="item-name">Alemana</span><span class="item-desc">Salchicha, tocino y quesillo</span></div><span class="price">$60.00</span></div>
+                    <div class="menu-item"><div class="item-info"><span class="item-name">Argentina</span><span class="item-desc">Milanesa, chorizo y queso manchego</span></div><span class="price">$65.00</span></div>
+                    <div class="menu-item"><div class="item-info"><span class="item-name">Charly's</span><span class="item-desc">Pierna, jamón y queso manchego</span></div><span class="price">$65.00</span></div>
+                    <div class="menu-item"><div class="item-info"><span class="item-name">Cubana</span><span class="item-desc">Un poco de todo</span></div><span class="price">$80.00</span></div>
+                    <div class="menu-item"><div class="item-info"><span class="item-name">Hawaiana</span><span class="item-desc">Jamón, piña y quesillo</span></div><span class="price">$60.00</span></div>
+                    <div class="menu-item"><div class="item-info"><span class="item-name">Suiza</span><span class="item-desc">Quesillo, manchego y amarillo</span></div><span class="price">$60.00</span></div>
+                </div>
+
+                <!-- 3. HAMBURGUESAS JUMBO -->
+                <div class="menu-category">
+                    <h3>Hamburguesas Jumbo</h3>
+                    <div class="menu-item"><div class="item-info"><span class="item-name">Jumbo Charly's</span><span class="item-desc">Carne, queso americano, vegetales</span></div><span class="price">Solo $50 / Paq $75</span></div>
+                    <div class="menu-item"><div class="item-info"><span class="item-name">Ultimate Cheese</span><span class="item-desc">Doble carne, doble queso</span></div><span class="price">Solo $60 / Paq $85</span></div>
+                    <div class="menu-item"><div class="item-info"><span class="item-name">Bacon Cheese</span><span class="item-desc">Doble carne, tocino, quesos</span></div><span class="price">Solo $60 / Paq $85</span></div>
+                    <div class="menu-item"><div class="item-info"><span class="item-name">Hawaiana</span><span class="item-desc">Carne, jamón, piña, quesos</span></div><span class="price">Solo $55 / Paq $80</span></div>
+                </div>
+
+                <!-- 4. ALAMBRES -->
+                <div class="menu-category">
+                    <h3>Alambres ($135.00 )</h3>
+                    <div class="menu-item"><span>Pollo / Bistec / De la Casa</span><span class="price">$135.00</span></div>
+                    <div class="menu-item"><span>Vegetariano / Light / Normal</span><span class="price">$135.00</span></div>
+                    <div class="menu-item"><span>Sarape / Toluqueño / Hawaiano</span><span class="price">$135.00</span></div>
+                    <div class="menu-item"><span>Alambre Loco / Combinado</span><span class="price">$135.00</span></div>
+                    <div class="menu-item"><div class="item-info"><span class="item-name">Parrillada (2 personas)</span><span class="item-desc">Bistec, chuleta, chorizo, tocino, aguacate</span></div><span class="price">$215.00</span></div>
+                </div>
+
+                <!-- 5. TACOS Y MÁS -->
+                <div class="menu-category">
+                    <h3>Tacos y Antojitos</h3>
+                    <div class="menu-item"><span>Tacos (Bistec, Pastor, Chorizo, Pollo)</span><span class="price">$30.00</span></div>
+                    <div class="menu-item"><span>Taco Arrachera</span><span class="price">$35.00</span></div>
+                    <div class="menu-item"><span>Gringas</span><span class="price">$45.00</span></div>
+                    <div class="menu-item"><span>Burritos Norteños</span><span class="price">$60.00</span></div>
+                    <div class="menu-item"><span>Huarache con Queso</span><span class="price">$35.00</span></div>
+                    <div class="menu-item"><span>Huarache con Carne</span><span class="price">$50.00</span></div>
+                </div>
+
+                <!-- 6. ENCHILADAS Y CHILAQUILES -->
+                <div class="menu-category">
+                    <h3>Desayunos y Más</h3>
+                    <div class="menu-item"><span>Enchiladas Verdes/Rojas</span><span class="price">$85.00</span></div>
+                    <div class="menu-item"><span>Chilaquiles con Carne/Pechuga</span><span class="price">$95.00</span></div>
+                    <div class="menu-item"><span>Molletes Sencillos</span><span class="price">$55.00</span></div>
+                    <div class="menu-item"><span>Molletes con Carne</span><span class="price">$80.00</span></div>
+                </div>
+
+                <!-- 7. ESPECIALIDADES HAMBURGUESAS -->
+                <div class="menu-category">
+                    <h3>Especialidades Burguer</h3>
+                    <div class="menu-item"><span>Hamburguesa de Alambre</span><span class="price">Solo $55 / Paq $75</span></div>
+                    <div class="menu-item"><span>BBQ Ultimate Cheese</span><span class="price">Solo $60 / Paq $85</span></div>
+                    <div class="menu-item"><span>Sirloin Steak Crown</span><span class="price">Solo $60 / Paq $85</span></div>
+                    <div class="menu-item"><span>Arrachera Steak Crown</span><span class="price">Solo $60 / Paq $85</span></div>
+                </div>
+
+                <!-- 8. A LA CARTA -->
+                <div class="menu-category">
+                    <h3>A la Carta</h3>
+                    <div class="menu-item"><span>Ensalada Atún / Chef / Pollo</span><span class="price">$110.00</span></div>
+                    <div class="menu-item"><span>Tiras de Pollo con Papas</span><span class="price">$125.00</span></div>
+                    <div class="menu-item"><span>Fish and Chips</span><span class="price">$145.00</span></div>
+                    <div class="menu-item"><span>Alitas (6 pzs / 12 pzs)</span><span class="price">$80 / $160</span></div>
+                    <div class="menu-item"><span>Nachos con Carne</span><span class="price">$135.00</span></div>
+                </div>
+
+                <!-- 9. CORTES -->
+                <div class="menu-category">
+                    <h3>Cortes (300g)</h3>
+                    <div class="menu-item"><span>Arrachera / Rib Eye / T-Bone</span><span class="price">$185.00</span></div>
+                    <div class="menu-item"><span>Costilla de Cerdo BBQ</span><span class="price">$185.00</span></div>
+                    <div class="menu-item"><span>Milanesa Res/Pollo</span><span class="price">$95.00</span></div>
+                    <div class="menu-item"><span>Club Sandwich con Papas</span><span class="price">$100.00</span></div>
+                </div>
+
+                <!-- 10. MICHELADAS -->
+                <div class="menu-category">
+                    <h3>Micheladas de Sabores</h3>
+                    <div class="menu-item"><span>Michelada 500ml</span><span class="price">$50.00</span></div>
+                    <div class="menu-item"><span>Michelada Litro</span><span class="price">$85.00</span></div>
+                    <div class="menu-item"><span>Heineken 500ml</span><span class="price">$55.00</span></div>
+                    <div class="menu-item"><span>Heineken Litro</span><span class="price">$90.00</span></div>
+                    <div class="menu-item"><span>Tritón (5L)</span><span class="price">$400.00</span></div>
+                    <div class="menu-item"><span>Misil (3L)</span><span class="price">$255.00</span></div>
+                </div>
+
+                <!-- 11. CERVEZA DE BARRIL -->
+                <div class="menu-category">
+                    <h3>Cerveza de Barril</h3>
+                    <div class="menu-item"><span>Jarra 1.7L (Indio/Tecate)</span><span class="price">$130.00</span></div>
+                    <div class="menu-item"><span>Jarra Cubana</span><span class="price">$140.00</span></div>
+                    <div class="menu-item"><span>Litro (Indio/Tecate)</span><span class="price">$80.00</span></div>
+                    <div class="menu-item"><span>Litro Cubano / Clamato</span><span class="price">$85.00</span></div>
+                </div>
+
+                <!-- 12. CERVEZA MEGAS Y CUBETAS -->
+                <div class="menu-category">
+                    <h3>Megas y Cubetas</h3>
+                    <div class="menu-item"><span>Mega (Indio/Tecate/XX)</span><span class="price">$85.00</span></div>
+                    <div class="menu-item"><span>Cubetazo 6 pzs (1/2)</span><span class="price">$180.00</span></div>
+                    <div class="menu-item"><span>Cubetazo 12 pzs (1/2)</span><span class="price">$360.00</span></div>
+                    <div class="menu-item"><span>Cubetazo Heineken 6 pzs</span><span class="price">$210.00</span></div>
+                </div>
+
+                <!-- 13. OTROS Y SNACKS -->
+                <div class="menu-category">
+                    <h3>Snacks y Otros</h3>
+                    <div class="menu-item"><span>Papas a la Francesa</span><span class="price">$75.00</span></div>
+                    <div class="menu-item"><span>Deditos de Queso</span><span class="price">$110.00</span></div>
+                    <div class="menu-item"><span>Boneless (7 pzs)</span><span class="price">$110.00</span></div>
+                    <div class="menu-item"><span>New Mix / Skyy Blue</span><span class="price">$45.00</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ubicacion" style="margin-top: 8rem;">
+            <h2 class="section-title">Encuentra el <span>Caos</span></h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-skull"></i>
+                    <h4>Ubicación</h4>
+                    <p>Ven a vivir la experiencia en vivo. No aceptamos aburridos.</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=RESTAURANTE+CHARLY%27S" target="_blank" class="btn btn-outline" style="margin-top: 2rem;">Ver Mapa</a>
+                </div>
+                <div id="contacto" class="info-card">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Contacto</h4>
+                    <p>¿Tienes hambre o sed? Llama ahora:</p>
+                    <p style="font-size: 1.5rem; margin-top: 1rem; color: var(--neon-red );"><strong>+52 55 6311 2851</strong></p>
+                    <a href="tel:+525563112851" class="btn btn-neon" style="margin-top: 2rem;">Llamar</a>
+                </div>
+                <div id="horarios" class="info-card">
+                    <i class="fas fa-fire"></i>
+                    <h4>Horarios</h4>
+                    <p>Lun - Jue: 1:00 PM – 11:00 PM</p>
+                    <p>Vie - Sáb: 1:00 PM – 1:30 AM</p>
+                    <p>Dom: 2:00 PM – 11:00 PM</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p style="letter-spacing: 5px; font-weight: 700; color: var(--neon-red);">CHARLY'S | REBEL FOOD & DRINKS</p>
+    </footer>
+</body>
+</html>
